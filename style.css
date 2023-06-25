@@ -1,0 +1,147 @@
+/*geral*/
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Helvetica;
+    color: #333;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(img/mizusho.jpg);
+    background-position-x: center;
+    background-size: auto;
+
+}
+button {
+    background-color: #fdfdfd; 
+    color: #102F5e;
+    border: 2px solid #102F5e;
+    padding: .3rem .6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+button:hover {
+    background-color: #102F5e;
+    color: #FFF;
+}
+button:hover > i {
+    color: #FFF;
+}
+button i {
+    color: #102F5e;
+    font-weight: bold;
+    pointer-events: none;
+}
+input, select {
+    padding: 0.25rem 0,5rem;
+}
+.hide {
+    display: none;
+}
+/*header*/
+.TdContainer {
+    max-width: 450px;
+    margin: 3rem auto 0;
+    background-color: #FFFd;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+.TdContainer header {
+    text-align: center;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid #ccc;
+}
+/*form*/
+#TdForm, #EditForm  {
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+#TdForm p, #EditForm p {
+    margin-bottom: 0,5rem;
+    font-weight: bold;
+}
+
+.FormControl {
+    display: flex;
+
+}
+.FormControl input {
+    margin-right: 0.3rem;
+}
+#cancelEditBTN {
+    margin-top: 1rem;
+}
+/*ToDo Bar*/
+#Toolbar {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+}
+#Toolbar h4 {
+     margin-bottom: 0.5rem;
+}
+#search {
+    border-right: 1px solid #ddd;
+    margin-right: 1rem;
+    padding-right: 1rem;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+#search form {
+    display: flex;
+}
+
+#search input {
+    width: 100%;
+    margin-right: 0.3rem;
+}
+#filter {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+#filter select {
+    flex: 1;
+}
+/*td list*/
+
+.td {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: #ddd;
+    transition: 0.3s;
+}
+.td h3 {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.td button {
+    margin-left: 0.4rem;
+}
+.td-done {
+    background-color: #395169;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: #ddd;
+    transition: 0.3s;
+}
+.td-done h3 {
+    color: #FFF;
+    text-decoration: line-through;
+    font-style: italic;
+    flex: 1;
+    font-size: 0.9rem;
+}
+.td-done button {
+    margin-left: 0.4rem;
+}
