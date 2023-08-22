@@ -9,7 +9,7 @@ const cancelEditBTN = window.document.querySelector("#cancelEditBTN");
 //funções//
 const saveTodo = (text) => {
     const todo = window.document.createElement ("div")
-    todo.classList.add("todo")
+    todo.classList.add("td")
 
     const todoTitle = document.createElement ("h3")
     todoTitle.innerText = text
