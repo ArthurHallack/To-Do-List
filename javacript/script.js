@@ -6,6 +6,8 @@ const EditForm = window.document.querySelector("#EditForm");
 const EditInput = window.document.querySelector("#Edit-input");
 const cancelEditBTN = window.document.querySelector("#cancelEditBTN");
 
+let oldInputValue
+
 //funções//
 const saveTodo = (text) => {
     const todo = window.document.createElement ("div")
@@ -31,6 +33,25 @@ const saveTodo = (text) => {
     todo.appendChild(DeleteBtn)
 
     TodoList.appendChild(todo)
+
+    tdInput.value = ""
+    tdInput.focus()
+}
+
+const toggleForms = () => {
+    EditForm.classList.toggle("hide")
+    tdForm.classList.toggle("hide")
+    TodoList.classList.toggle("hide")
+}
+
+const updateTodo = (text) => {
+    const todos = document.querySelectorAll(".td")
+    todos.forEach((todo) => {
+        let todoTitle = todo.querySelector("h3")
+        if(todoTitle.innerText === oldInputValue) {
+            todoTitle.innerText = text
+        }
+    })
 }
 
 //eventos//
@@ -41,3 +62,47 @@ tdForm.addEventListener("submit", (e) => {
         saveTodo(inputvalue)
     }
 });
+
+document.addEventListener("click", (e) => {
+    const targetEl = e.target
+    const parentEl = targetEl.closest("div")
+    let todoTitle
+
+    if (parentEl && parentEl.querySelector("h3")) {
+        todoTitle = parentEl.querySelector("h3").innerText
+    }
+
+
+    if (targetEl.classList.contains("finish-td")){
+        parentEl.classList.toggle("td-done")
+    }
+
+    if (targetEl.classList.contains("remove-td")){
+        parentEl.remove()
+    }
+
+    if (targetEl.classList.contains("edit-td")){
+        toggleForms()
+
+        EditInput.value = todoTitle
+        oldInputValue = todoTitle
+    }
+})
+
+cancelEditBTN.addEventListener ("click", (e) => {
+    e.preventDefault()
+
+    toggleForms()
+})
+
+EditForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const EditInputValue = EditInput.value
+
+    if (EditInputValue) {
+        updateTodo(EditInputValue)
+    }
+
+    toggleForms()
+})
