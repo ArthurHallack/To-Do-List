@@ -5,6 +5,8 @@ const TodoList = window.document.querySelector("#TodoList");
 const EditForm = window.document.querySelector("#EditForm");
 const EditInput = window.document.querySelector("#Edit-input");
 const cancelEditBTN = window.document.querySelector("#cancelEditBTN");
+const eraseBtn = window.document.getElementById("erase-button")
+const searchInput = window.document.getElementById("searchInput")
 
 let oldInputValue
 
@@ -105,4 +107,23 @@ EditForm.addEventListener("submit", (e) => {
     }
 
     toggleForms()
+})
+
+searchInput.oninput = () => {
+    const Tarefa = searchInput.value
+    let todo = window.document.querySelectorAll(".td")
+    todo.forEach((div)=>{
+            let h3 = window.document.querySelector("h3")
+            let h3text = h3.textContent
+            if (h3text.includes(Tarefa)) {
+                div.style.display = "flex"; 
+            } else {
+                div.style.display = "none"; 
+            }
+    })
+}
+
+
+eraseBtn.addEventListener("click", () => {
+    searchInput.value = ""
 })
