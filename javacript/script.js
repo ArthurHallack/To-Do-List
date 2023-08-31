@@ -110,20 +110,23 @@ EditForm.addEventListener("submit", (e) => {
 })
 
 searchInput.oninput = () => {
-    const Tarefa = searchInput.value
-    let todo = window.document.querySelectorAll(".td")
-    todo.forEach((div)=>{
-            let h3 = window.document.querySelector("h3")
-            let h3text = h3.textContent
-            if (h3text.includes(Tarefa)) {
-                div.style.display = "flex"; 
-            } else {
-                div.style.display = "none"; 
-            }
+    let todo = window.document.querySelectorAll(".td h3")
+    let td = window.document.querySelectorAll(".td")
+    let conteudo = searchInput.value.toLowerCase()
+
+    td.forEach((tdElement, index) => {
+        const h3Elemt = todo[index]
+        const h3text = h3Elemt.textContent.toLowerCase()
+
+        if (h3text.includes(conteudo)) {
+            tdElement.style.display = "flex"
+        } else {
+            tdElement.style.display = "none"
+        }
     })
 }
 
-
-eraseBtn.addEventListener("click", () => {
+eraseBtn.addEventListener("click", (e) => {
+    e.preventDefault()
     searchInput.value = ""
 })
