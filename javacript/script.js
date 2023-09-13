@@ -1,12 +1,13 @@
 //seleção de elementos//
 const tdForm = window.document.querySelector("#TdForm");
 const tdInput = window.document.querySelector("#TdInput");
-const TodoList = window.document.querySelector("#TodoList");
+const TodoList = window.document.querySelector(".TodoList");
 const EditForm = window.document.querySelector("#EditForm");
 const EditInput = window.document.querySelector("#Edit-input");
 const cancelEditBTN = window.document.querySelector("#cancelEditBTN");
 const eraseBtn = window.document.getElementById("erase-button")
 const searchInput = window.document.getElementById("searchInput")
+const select = window.document.getElementById("Filter-select")
 
 let oldInputValue
 
@@ -130,3 +131,20 @@ eraseBtn.addEventListener("click", (e) => {
     e.preventDefault()
     searchInput.value = ""
 })
+
+select.addEventListener("change", () => {
+    const tdOpcao = window.document.querySelectorAll(".TodoList div");
+    const opcao = select.value;
+  
+    tdOpcao.forEach((div) => {
+      if (opcao === "all") {
+        div.style.display = 'flex';
+      } else if (opcao === "td" && !div.classList.contains("td")) {
+        div.style.display = 'none';
+      } else if (opcao === "td-done" && div.classList.contains("td")) {
+        div.style.display = 'none';
+      } else {
+        div.style.display = 'flex';
+      }
+    });
+  });
