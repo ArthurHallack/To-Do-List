@@ -133,18 +133,18 @@ eraseBtn.addEventListener("click", (e) => {
 })
 
 select.addEventListener("change", () => {
-    const tdOpcao = window.document.querySelectorAll(".TodoList div");
-    const opcao = select.value;
+    const tdOpcao = window.document.querySelectorAll(".TodoList div")
+    const opcao = select.value
   
     tdOpcao.forEach((div) => {
-      if (opcao === "all") {
-        div.style.display = 'flex';
-      } else if (opcao === "td" && !div.classList.contains("td")) {
-        div.style.display = 'none';
-      } else if (opcao === "td-done" && div.classList.contains("td")) {
-        div.style.display = 'none';
-      } else {
-        div.style.display = 'flex';
-      }
-    });
-  });
+        if (opcao === "all") {
+            div.style.display = 'flex'
+        } else if (opcao === "td-done" && div.classList.contains("td-done")) {
+            div.style.display = 'flex'
+        } else if (opcao === "td" && !div.classList.contains("td-done")) {
+            div.style.display = 'flex'
+        } else {
+            div.style.display = 'none'
+        }
+    })
+  })
