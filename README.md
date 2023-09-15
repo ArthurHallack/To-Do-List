@@ -3,7 +3,7 @@
 >Status: Concluido !!.
 
 # 📌  Sobre o projeto
-Este projeto se trata de uma lista de tarefas com tema de JJK, criado para exercitar alguns conseitos de Javascript puro.
+Este projeto se trata de uma lista de tarefas com tema de JJK, criado para exercitar alguns conceitos de Javascript puro.
 
 <h2>funcionalidades:</h2>
 <p>Adição de tarefas</p>
